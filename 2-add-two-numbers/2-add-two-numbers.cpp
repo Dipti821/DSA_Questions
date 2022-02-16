@@ -14,7 +14,7 @@ public:
         ListNode* ans= new ListNode(0);
         ListNode* temp=ans;
         int carry=0;
-        while(l1 || l2){
+        while(l1 || l2 || carry){
             int val1=l1?l1->val:0;
             int val2=l2?l2->val:0;
             temp->next=new ListNode((val1+val2+carry)%10);
@@ -25,8 +25,8 @@ public:
             if(l2)
                 l2=l2->next;
         }
-        if(carry!=0)
-            temp->next=new ListNode(carry);
+        // if(carry!=0)
+        //     temp->next=new ListNode(carry);
         return ans->next;
         
     }
