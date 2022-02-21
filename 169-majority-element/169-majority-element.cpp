@@ -12,7 +12,7 @@ public:
 //               return nums[i];
 //       }
        
-// 2nd Approach     TC: O(N) , SC:O(1)
+// 2nd Approach     TC: O(N) , SC: O(1)
         int maj_index = 0, count = 1;
         for (int i = 1; i < sz; i++) {
         if (nums[maj_index] == nums[i])
