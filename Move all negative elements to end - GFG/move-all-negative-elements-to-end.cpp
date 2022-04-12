@@ -76,7 +76,7 @@ class Solution{
     // for(int i=0;i<n;i++)
     // a[i]=temp[i];
     
-    //with TC: O(N) SC: O(1)
+    //with TC: O(NlogN) SC: space used only for merging
     RearrangeNeg(a , 0, n-1);
   
     
