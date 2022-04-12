@@ -12,6 +12,7 @@ class Solution{
     long long maxSubarraySum(int a[], int n){
         
         // Your code here
+        // Kadane's Algorithm
         long long sum=0 ,ans=INT_MIN;
         
         for(int i=0;i<n;i++){
