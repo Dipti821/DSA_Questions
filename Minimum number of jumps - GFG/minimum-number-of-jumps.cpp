@@ -11,6 +11,7 @@ class Solution{
     int minJumps(int a[], int n){
         // Your code here
         
+        // 1st method
         if(n<2)
         return 0;
         
@@ -20,23 +21,27 @@ class Solution{
         int jump=1 , step=a[0] , mReach=a[0];
         for(int i=1;i<n;i++){
            
-           if(i==n-1)
-           return jump;
+          if(i==n-1)
+          return jump;
            
-           mReach=max(mReach ,i+a[i]);
-           step--;
+          mReach=max(mReach ,i+a[i]);
+          step--;
            
-           if(step==0){
-               jump++;
+          if(step==0){
+              jump++;
                
-               if(mReach<=i)
-               return -1;
+              if(mReach<=i)
+              return -1;
                
-               step=mReach-i;
-           }
+              step=mReach-i;
+          }
            
         }
         return -1;
+        
+        
+        
+        
     }
 };
 
