@@ -1,5 +1,5 @@
 # Move all negative elements to end
-##  Easy 
+## Easy 
 <div class="problem-statement">
                 <p></p><p><span style="font-family:arial,helvetica,sans-serif"><span style="font-size:18px">Given an unsorted array <strong>arr[]</strong> of size <strong>N</strong> having both&nbsp;negative and positive integers. The task is place all negative element at the end of array without changing the order of positive element and negative element.</span></span></p>
 
