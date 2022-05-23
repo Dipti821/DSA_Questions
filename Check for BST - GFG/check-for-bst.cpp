@@ -28,13 +28,13 @@ class Solution
         return 1;
              
  
-        if (node->data < min || node->data > max)
+        if (node->data <= min || node->data >= max)
         return 0;
      
   
         return
-        check(node->left, min, node->data-1) && // Allow only distinct values
-        check(node->right, node->data+1, max); 
+        check(node->left, min, node->data) && // Allow only distinct values
+        check(node->right, node->data, max); 
     }
     bool isBST(Node* root) 
     {
