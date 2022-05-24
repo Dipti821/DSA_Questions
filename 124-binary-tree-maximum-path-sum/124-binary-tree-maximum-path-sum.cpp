@@ -20,13 +20,12 @@ public:
         if(root==NULL)
             return 0;
        
-        int l_val=cal(root->left , ans);
-        int r_val=cal(root->right ,ans);
+        int l_val=max(0,cal(root->left , ans));
+        int r_val=max(0,cal(root->right ,ans));
         
         ans=max(ans,l_val+r_val+root->val);
         
-        if(max(l_val,r_val)+root->val<0)
-            return 0;
+        
         return max(l_val,r_val)+root->val;
     }
 };
