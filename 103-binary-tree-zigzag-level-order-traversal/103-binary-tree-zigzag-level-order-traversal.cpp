@@ -24,6 +24,7 @@ public:
         while (!q.empty()) {
           int sz = q.size();
           vector<int> row(sz);
+            
           for (int i = 0; i < sz; i++){
           TreeNode * node = q.front();
           q.pop();
@@ -38,7 +39,7 @@ public:
           if(node -> right)
           q.push(node -> right);
       
-    }
+           }
     // after this level
     leftToRight = !leftToRight;
     result.push_back(row);
