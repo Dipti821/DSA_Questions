@@ -1,6 +1,8 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
+        
+        // Dutch National Flag Problem
         int sz=nums.size();
         int low_i=0,high_i=sz-1,mid=0;
          while(mid<=high_i){
