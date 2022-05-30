@@ -119,7 +119,11 @@ long long getInversions(long long arr[], int n){
 
 ## Approach 2: Fenwick Tree
 
-In this approach, we will create a Fenwick tree with every element having value 0 and map the given array to get the position of every element according to sorted order and then iterate through the positions and update the Fenwick tree to 1 for every element.
+### Idea: 
+Traverse through the array and for every index find the number of smaller elements on its right side of the array . Sum up the counts of all the indexes
+in the array and print the sum.
+
+In this approach, we will create a Fenwick tree with every element having value 0 and map the given array to get the position of every element according to sorted order and then iterate through the positions and update the Fenwick tree to 1 for every element.(As value can be very big and maybe negative so we convert array into relative ordering)
 
 
 The steps are as follows:
@@ -244,5 +248,6 @@ long long getInversions(long long *arr, int n) {
  
  - [Codestudio](https://www.codingninjas.com/codestudio/problems/count-inversions_615?leftPanelTab=2)
  - [gfg](https://www.geeksforgeeks.org/counting-inversions/)
+ - [fenwick_tree](https://github.com/luvk1412/youtube_codes/blob/master/binary_indexed_trees/q1_rangesum.cpp)
 
 
