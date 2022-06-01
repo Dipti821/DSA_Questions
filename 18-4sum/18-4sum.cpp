@@ -10,7 +10,10 @@ public:
         
         sort(nums.begin(),nums.end());
         vector<vector<int>>ans;
-        for(int i=0;i<sz;i++){
+        for(int i=0;i<sz-3;i++){
+            
+             
+             
             for(int j=i+1;j<sz;j++){
                 int rem=target-(nums[i]+nums[j]);
                 int left=j+1,right=sz-1;
