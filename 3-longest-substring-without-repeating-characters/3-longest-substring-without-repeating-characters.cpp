@@ -1,6 +1,9 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
+        
+        
+        // TC: O(N) SC: O(N)
         int ans=0,st=0;
         unordered_map<char,int>m;
         for(int i=0;i<s.length();i++){
