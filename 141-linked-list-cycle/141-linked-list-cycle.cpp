@@ -9,11 +9,14 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
+        // Method1: using hashmap
+        
+        // TC: O(N) SC:O(1)
         ListNode *slow,*fast;
         slow=head;
         fast=head;
       
-        while(slow && fast && fast->next)
+        while(fast && fast->next)
         {
             slow=slow->next;
             fast=fast->next->next;
