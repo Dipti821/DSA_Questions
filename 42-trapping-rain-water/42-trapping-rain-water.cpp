@@ -28,12 +28,14 @@ public:
             if(lmax<=rmax){
                 if(lmax<height[l]) lmax=height[l];
                 else
-                ans+=(lmax-height[l]),l++;
+                ans+=(lmax-height[l]);
+                l++;
             }
             else{
                 if(rmax<height[r]) rmax=height[r];
                 else
-                    ans+=(rmax-height[r]),r--;
+                    ans+=(rmax-height[r]);
+                r--;
                    
             }
         }
