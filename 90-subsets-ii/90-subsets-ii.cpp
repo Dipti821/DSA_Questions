@@ -1,6 +1,9 @@
 class Solution {
 public:
     void generateSubset(int ind ,vector<int>&subset,vector<int>&nums,vector<vector<int>>&res){
+        //TC: O(N(2^N)) 2^n for recursion n for copying it in ds i.e subset
+        // auxiliary SC: O(N)
+        // SC: O(2^N)*O(K) where k is avg. length of subset
          res.push_back(subset);
          for (int i = ind; i < nums.size(); i++) {
             if (i != ind && nums[i] == nums[i - 1]) continue;
