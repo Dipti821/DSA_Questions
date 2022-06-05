@@ -29,10 +29,7 @@ public:
     // Method 2: SC: O(N) TC: O(N*N!)
       void cal(int ind, vector<int>&nums,vector<vector<int>>&ans) {
        if(ind==nums.size()){
-           vector<int>permu;
-           for(int i=0;i<nums.size();i++)
-               permu.push_back(nums[i]);
-           ans.push_back(permu);
+           ans.push_back(nums);
            return;
        }
         for(int i=ind;i<nums.size();i++){
