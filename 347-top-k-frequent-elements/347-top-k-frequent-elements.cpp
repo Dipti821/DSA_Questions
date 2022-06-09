@@ -1,6 +1,10 @@
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k) {
+        
+// Time:  O(nlogk)
+// Space: O(n)
+// Heap solution.
         unordered_map<int, int> counts;
         for (int i = 0; i < nums.size(); ++i) {
             ++counts[nums[i]];
