@@ -1,6 +1,9 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
+        
+        // using heap
+        
         // priority_queue<int>pq;
         // for(int i=0;i<nums.size();i++){
         //      pq.push(nums[i]); 
@@ -8,7 +11,13 @@ public:
         //         pq.pop();
         // }   
         // return pq.top();
-        nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), greater<int>());
+        
+        // using nth element STL
+        // nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), greater<int>());
+        // return nums[k - 1];
+        
+        // using partial sort
+         partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
         return nums[k - 1];
     }
 };
