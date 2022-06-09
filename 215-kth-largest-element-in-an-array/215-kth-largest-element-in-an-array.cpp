@@ -13,11 +13,11 @@ public:
         // return pq.top();
         
         // using nth element STL
-        // nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), greater<int>());
-        // return nums[k - 1];
-        
-        // using partial sort
-         partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
+        nth_element(nums.begin(), nums.begin() + k - 1, nums.end(), greater<int>());
         return nums[k - 1];
+        
+        // using partial sort STL
+         // partial_sort(nums.begin(), nums.begin() + k, nums.end(), greater<int>());
+         // return nums[k - 1];
     }
 };
