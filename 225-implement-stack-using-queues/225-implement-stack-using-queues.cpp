@@ -6,6 +6,7 @@ public:
     }
     
     void push(int x) {
+        //TC: O(N) SC: O(N)+O(N)
         // q2.push(x);
         // while(!q1.empty()){
         //     q2.push(q1.front());
@@ -14,6 +15,7 @@ public:
         // swap(q1,q2);
         
         // using only one queue
+        // TC: O(N) ,SC:O(N)
         q1.push(x);
         int k=q1.size();
         k--;
