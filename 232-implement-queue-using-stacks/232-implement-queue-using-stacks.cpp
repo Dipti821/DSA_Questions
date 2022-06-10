@@ -17,6 +17,8 @@ public:
         //     s1.push(s2.top());
         //     s2.pop();
         // }  
+        
+        // amortised TC: O(1) sc: O(2N)
         input.push(x);
         
     }
