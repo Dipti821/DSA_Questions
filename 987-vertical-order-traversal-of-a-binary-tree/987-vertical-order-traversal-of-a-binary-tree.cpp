@@ -11,40 +11,52 @@
  */
 class Solution {
 public:
-    vector<vector<int>> verticalTraversal(TreeNode* root) {
-         map < int, map < int, multiset < int >>> nodes;
+      map < int, map < int, multiset < int >>> nodes;
          queue < pair < TreeNode * , pair < int, int >>> todo;
-        
-  todo.push({root,{ 0,0}}); //initial vertical and level
-        
-  while (!todo.empty()) {
-    auto p = todo.front();
-    todo.pop();
-    TreeNode * temp = p.first;
-
-    //x -> vertical , y->level
-    int x = p.second.first, y = p.second.second;
-    nodes[x][y].insert(temp -> val); //inserting to multiset
-
-    if (temp -> left) {
-      todo.push({
-        temp -> left,
-        {
-          x - 1,
-          y + 1
+     void dfs(TreeNode* root, int x, int y) {
+        if (root) {
+            nodes[x][y].insert(root -> val);
+            dfs(root -> left, x - 1, y + 1);
+            dfs(root -> right, x + 1, y + 1);
         }
-      });
     }
-    if (temp -> right) {
-      todo.push({
-        temp -> right,
-        {
-          x + 1,
-          y + 1
-        }
-      });
-    }
-  }
+    
+    vector<vector<int>> verticalTraversal(TreeNode* root) {
+       
+        dfs(root,0,0);
+        
+        // bfs
+        
+//   todo.push({root,{ 0,0}}); //initial vertical and level
+        
+//   while (!todo.empty()) {
+//     auto p = todo.front();
+//     todo.pop();
+//     TreeNode * temp = p.first;
+
+//     //x -> vertical , y->level
+//     int x = p.second.first, y = p.second.second;
+//     nodes[x][y].insert(temp -> val); //inserting to multiset
+
+//     if (temp -> left) {
+//       todo.push({
+//         temp -> left,
+//         {
+//           x - 1,
+//           y + 1
+//         }
+//       });
+//     }
+//     if (temp -> right) {
+//       todo.push({
+//         temp -> right,
+//         {
+//           x + 1,
+//           y + 1
+//         }
+//       });
+//     }
+//   }
   vector < vector < int >> ans;
   for (auto p: nodes) {
     vector < int > col;
