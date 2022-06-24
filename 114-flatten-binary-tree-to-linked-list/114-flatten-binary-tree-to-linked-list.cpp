@@ -24,23 +24,41 @@ public:
 //       prev = root; 
         
         // using stack TC: O(N) SC: O(N)
-        if (root == NULL) return;
-  stack < TreeNode * > st;
-  st.push(root);
-  while (!st.empty()) {
-    TreeNode * cur = st.top();
-    st.pop();
+//         if (root == NULL) return;
+//   stack < TreeNode * > st;
+//   st.push(root);
+//   while (!st.empty()) {
+//     TreeNode * cur = st.top();
+//     st.pop();
 
-    if (cur -> right != NULL) {
-      st.push(cur -> right);
-    }
-    if (cur -> left != NULL) {
-      st.push(cur -> left);
-    }
-    if (!st.empty()) {
-      cur -> right = st.top();
-    }
-    cur -> left = NULL;
-  }
+//     if (cur -> right != NULL) {
+//       st.push(cur -> right);
+//     }
+//     if (cur -> left != NULL) {
+//       st.push(cur -> left);
+//     }
+//     if (!st.empty()) {
+//       cur -> right = st.top();
+//     }
+//     cur -> left = NULL;
+//   }
+        
+        //TC: O(N)  SC:O(1)
+          TreeNode* cur = root;
+		while (cur)
+		{
+			if(cur->left)
+			{
+				TreeNode* pre = cur->left;
+				while(pre->right)
+				{
+					pre = pre->right;
+				}
+				pre->right = cur->right;
+				cur->right = cur->left;
+				cur->left = NULL;
+			}
+			cur = cur->right;
+		}
     }
 };
