@@ -20,6 +20,19 @@ public:
         }
         return true;
     }
+    bool bipartitedfs(int src,vector<vector<int>>& graph,vector<int>&color){
+        if(color[src]==-1)
+            color[src]=1;
+        
+        for(auto it: graph[src]){
+            if(color[it]==-1){
+                color[it]=1-color[src];
+                if(!bipartitedfs(it,graph,color)) return false;
+            }
+            else if(color[it]==color[src]) return false;
+        }
+        return true;
+    }
     bool isBipartite(vector<vector<int>>& graph) {
         int sz=graph.size();
         
@@ -28,7 +41,7 @@ public:
         for(int i=0;i<sz;i++){
             if(color[i]==-1)
             {
-                if(!bipartitebfs(i,graph,color))
+                if(!bipartitedfs(i,graph,color))
                    return false; 
             }
         }
