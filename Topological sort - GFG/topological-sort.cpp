@@ -18,19 +18,43 @@ class Solution
 	    }
 	   s.push(node); 
 	}
+	void toposortbfs(int node,vector<int> adj[],vector<int> &vis,int n,vector<int> &ans){
+	    vector<int>indegree(n,0);
+	    queue<int>q;
+	    
+	    for(int i=0;i<n;i++){
+	        for(auto it: adj[i])
+	        indegree[it]++;
+	    }
+	    
+	    for(int i=0;i<n;i++)
+	    if(indegree[i]==0) q.push(i);
+	    
+	    while(!q.empty()){
+	        int x=q.front();
+	        q.pop();
+	        ans.push_back(x);
+	        
+	        for(auto it: adj[x]){
+	            indegree[it]--;
+	            if(indegree[it]==0) q.push(it);
+	        }
+	    }
+	}
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    vector<int>ans;
 	    vector<int>vis(V,0);
-	    for(int i=0;i<V;i++){
-	        if(!vis[i])
-	         toposortdfs(i,adj,vis);
-	    }
-	   while(!s.empty())
-	   {
-	       ans.push_back(s.top());
-	       s.pop();
-	   }
+	   // for(int i=0;i<V;i++){
+	   //     if(!vis[i])
+	       //  toposortdfs(i,adj,vis);
+	       toposortbfs(0,adj,vis,V,ans);
+	   // }
+	   //while(!s.empty())
+	   //{
+	   //    ans.push_back(s.top());
+	   //    s.pop();
+	   //}
 	   return ans; 
 	}
 };
