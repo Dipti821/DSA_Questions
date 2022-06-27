@@ -14,6 +14,7 @@ class Solution{
     */
     vector <int> bellman_ford(int V, vector<vector<int>> adj, int S) {
         // Code here
+        // TC: O(N*E)
        vector<int>dist(V,1e8);
        dist[S]=0;
        for(int count=0;count<V-1;count++){
