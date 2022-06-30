@@ -26,6 +26,27 @@ int uniquePaths(int m, int n) {
     }
     return dp[m-1][n-1];
 }
+
+
+// Space Optimisation
+
+
+#include <bits/stdc++.h> 
+int uniquePaths(int m, int n) {
+	// Write your code here.
+    vector<int>prevrow(n,0);
+    for(int i=0;i<m;i++){
+        vector<int>temp(n,0);
+        for(int j=0;j<n;j++){
+            if(i==0 && j==0) temp[j]=1;
+            else if(j==0) temp[j]=prevrow[j];
+            else
+            temp[j] =temp[j-1]+prevrow[j];
+        } 
+        prevrow=temp;
+    }
+    return prevrow[n-1];
+}
 ~~~~~~
 
 ## Reference:
