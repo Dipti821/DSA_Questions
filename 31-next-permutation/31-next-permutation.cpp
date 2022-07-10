@@ -5,9 +5,11 @@ public:
         // if(!(next_permutation(nums.begin(),nums.end())))
         //    sort(nums.begin(),nums.end());
         
+        
+        // TC: O(N)+O(N)+O(N)~ O(N)  SC: O(1)
         int sz=nums.size();
         int i=sz-2;
-        while(i>=0 && nums[i+1]<=nums[i])
+        while(i>=0 && nums[i]>=nums[i+1])
             i--;
         
         if(i>=0){
