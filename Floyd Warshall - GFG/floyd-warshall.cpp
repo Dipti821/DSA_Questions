@@ -1,40 +1,45 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 //Initial template for C++
 
 #include<bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 //User function template for C++
 
 class Solution {
   public:
-	void shortest_distance(vector<vector<int>>&d){
+	void shortest_distance(vector<vector<int>>&matrix){
 	    // Code here
-// 	Time complexity: O(N^3)
-//  Space complexity: O(N^2)
-int n=d.size();
-
-	// Apply Flloyd Warshall's Algorithm.
-	for (int k = 0; k < n; k++)
-	{
-		for (int i = 0; i < n; i++)
-		{
-			for (int j = 0; j < n; j++)
-			{
-			    if(d[i][k]==-1 || d[k][j]==-1)
-			    continue;
-			        if(d[i][j]==-1)
-					d[i][j]=d[i][k] + d[k][j];
-				    else if (d[i][k] != -1 && d[k][j] != -1)
-					d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
-			}
-		}
-	}
+	    int n=matrix.size();
+	    for(int i=0;i<n;i++){
+	        for(int j=0;j<n;j++){
+	            if(matrix[i][j]==-1)
+	            matrix[i][j]=1e9;
+	            
+	            if(i==j) matrix[i][j]=0;
+	        }
+	    }
+	    
+	    for(int k=0;k<n;k++){
+	        for(int i=0;i<n;i++){
+	            for(int j=0;j<n;j++){
+	                matrix[i][j]=min(matrix[i][j] ,matrix[i][k]+matrix[k][j]);
+	            }
+	        }
+	    }
+	    
+	    
+	    for(int i=0;i<n;i++){
+	        for(int j=0;j<n;j++){
+	            if(matrix[i][j]==1e9)
+	            matrix[i][j]=-1;
+	        }
+	    }
 	}
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 int main(){
 	int tc;
 	cin >> tc;
@@ -57,4 +62,5 @@ int main(){
 		}
 	}
 	return 0;
-}  // } Driver Code Ends
+}
+// } Driver Code Ends
