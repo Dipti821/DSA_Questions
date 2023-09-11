@@ -34,7 +34,7 @@ class Solution {
                 
                 if(steps+1<dist[newNode]){
                     dist[newNode]=steps+1;
-                    // if(newNode==end) return steps+1;
+                    if(newNode==end) return steps+1;
                     q.push({newNode ,steps+1});
                 }
             }
